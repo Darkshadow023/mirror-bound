@@ -114,6 +114,21 @@ dialogues = [
     "Vision : Perhaps. But today, I choose hope."
 ]
 
+# Load voiceover files for each dialogue
+voiceovers = [
+    pygame.mixer.Sound(os.path.join('data', f"{i+1}.mp3"))
+    for i in range(len(dialogues)+16)
+]
+
+# Set the volume for the voiceovers (optional)
+for sound in voiceovers:
+    sound.set_volume(0.7)  # Adjust volume as needed
+
+current_dialogue_index = 0
+dialogue_box_rect = pygame.Rect(10, 500, 330, 120)
+current_text = ""  # Holds the current visible text for the typewriter effect
+typewriter_index = 0
+
 current_dialogue_index = 0
 char_index = 0
 dialogue_speed = 20  # Characters per second
